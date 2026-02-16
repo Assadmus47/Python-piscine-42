@@ -52,10 +52,23 @@ class PrizeFlower(FloweringPlant):
 
 class GardenManager:
     total_gardens = 0
-
+    def __init__(self, owner):
+        self.owner = owner
+        self.garden = []
     class GardenStats:
-    
+        @staticmethod
+        def get_garden_stats():
+            print("=== Alice's Garden Report ===")
+            
     @classmethod
     def create_garden_network(cls):
         total_gardens += 1
         return cls("new garden")
+    def add_plant_to_garden(self, plant:Plant):
+        self.garden.append(plant)
+        print(f"Added Oak Tree to {self.owner}'s garden")
+    def grew_plant(self):
+        print(f"{self.owner} is helping all plants grow...")
+        for plant in self.garden:
+            plant.grew()
+    
