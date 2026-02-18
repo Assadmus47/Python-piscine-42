@@ -7,7 +7,7 @@ class ColdTemperature(Exception):
     pass
 
 
-def check_temperature(temp_str: str) -> int:
+def check_temperature(temp_str: str) -> int | None:
     try:
         temperature: int = int(temp_str)
         if temperature > 40:
@@ -16,7 +16,7 @@ def check_temperature(temp_str: str) -> int:
                 )
         if temperature < 0:
             raise ColdTemperature(
-                f"Error: -{temperature}°C is too cold for plants (min 0°C)"
+                f"Error: {temperature}°C is too cold for plants (min 0°C)"
                 )
         print(f"Temperature {temperature}°C is perfect for plants!")
         return temperature
