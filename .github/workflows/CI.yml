@@ -1,8 +1,6 @@
 name: Norminette & Tests
 
-on: commit
-
-
+on: push
 
 jobs:
     flake8:
