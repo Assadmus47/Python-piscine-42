@@ -1,6 +1,6 @@
 name: Norminette & Tests
 
-on: push
+on: commit
 
 
 jobs:
