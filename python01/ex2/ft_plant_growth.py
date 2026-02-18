@@ -20,7 +20,7 @@ class Plant:
         """
         increment age of plants by one day
         """
-        self.day += 1
+        self.day += 1    
 
     def grow(self) -> None:
         """
