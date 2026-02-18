@@ -33,7 +33,7 @@ jobs:
 
         - name: Clone PyTypeGuard
           run: |
-            git clone https://github.com/yourusername/pytypeguard.git
+            git clone https://github.com/Assadmus47/pytypeguard.git
             cd pytypeguard
             pip install .
             cd ..
