@@ -1,7 +1,7 @@
 from typing import List
 
 
-def water_plants(plant_list: List[str]):
+def water_plants(plant_list: List[str]) -> None:
     try:
         print("Opening watering system")
         for plant in plant_list:
@@ -14,7 +14,7 @@ def water_plants(plant_list: List[str]):
         print("Closing watering system (cleanup)")
 
 
-def test_watering_system():
+def test_watering_system() -> None:
     print("=== Garden Watering System ===")
     print("")
     print("Testing normal watering...")
