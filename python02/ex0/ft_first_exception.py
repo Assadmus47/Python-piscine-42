@@ -1,32 +1,20 @@
 
-class HighTemperature(Exception):
-    pass
-
-
-class ColdTemperature(Exception):
-    pass
-
-
 def check_temperature(temp_str: str) -> int | None:
     try:
         temperature: int = int(temp_str)
         if temperature > 40:
-            raise HighTemperature(
-                f"Error: {temperature}°C is too hot for plants (max 40°C)"
+            raise ValueError(
+                f"{temperature}°C is too hot for plants (max 40°C)"
                 )
         if temperature < 0:
-            raise ColdTemperature(
+            raise ValueError(
                 f"Error: {temperature}°C is too cold for plants (min 0°C)"
                 )
         print(f"Temperature {temperature}°C is perfect for plants!")
         return temperature
 
-    except ValueError:
-        print(f"Error: '{temp_str}' is not a valid number")
-    except HighTemperature as error:
-        print(error)
-    except ColdTemperature as error:
-        print(error)
+    except ValueError as error:
+        print("Error:", error)
 
 
 def test_temperature_input() -> None:
