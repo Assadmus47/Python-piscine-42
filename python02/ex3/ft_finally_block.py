@@ -31,7 +31,7 @@ def test_watering_system():
         "tomato", None
     ]
     water_plants(plant_list)
-    print(" ")
+    print("")
     print("Cleanup always happens, even with errors!")
 
 
