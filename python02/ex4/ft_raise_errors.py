@@ -1,5 +1,27 @@
 
-def check_plant_health(plant_name: str, water_level: int, sunlight_hours: int) -> None:
+def check_plant_health(
+    plant_name: str, water_level: int, sunlight_hours: int
+) -> str:
+    """
+    Validate the health conditions of a plant.
+
+    This function checks:
+        - The plant name is not empty
+        - The water level is between 1 and 10
+        - The sunlight hours are between 2 and 12
+
+    Args:
+        plant_name (str): Name of the plant.
+        water_level (int): Water level measurement.
+        sunlight_hours (int): Number of sunlight hours.
+
+    Raises:
+        ValueError: If any parameter is outside
+        the acceptable range.
+
+    Returns:
+    str: A success message if all values are valid.
+    """
     if (not plant_name):
         raise ValueError("Plant name cannot be empty!")
 
@@ -10,20 +32,36 @@ def check_plant_health(plant_name: str, water_level: int, sunlight_hours: int) -
 
     if (sunlight_hours > 12):
         raise ValueError(
-            f"Sunlight hours {sunlight_hours} is too high (max 12)"
+            f"Sunlight hours {sunlight_hours} are too high (max 12)"
             )
     elif (sunlight_hours < 2):
-        raise ValueError(f"Sunlight hours {sunlight_hours} is too low (min 2)")
+        raise ValueError(
+            f"Sunlight hours {sunlight_hours} are too low (min 2)"
+            )
 
-    print(f"Plant '{plant_name}' is healthy!")
+    return f"Plant '{plant_name}' is healthy!"
 
 
 def test_plant_checks() -> None:
+    """
+    Demonstrate validation and error raising
+    for plant health checks.
+
+    This function tests:
+        - Valid input values
+        - Empty plant name
+        - Invalid water level
+        - Invalid sunlight hours
+
+    It shows how ValueError is raised
+    and handled properly without crashing
+    the program.
+    """
     print("=== Garden Plant Health Checker ===")
     print("")
     try:
         print("Testing good values...")
-        check_plant_health("tomato", 5, 5)
+        print(check_plant_health("tomato", 5, 5))
         print("")
     except ValueError as e:
         print("Error: ", e)
@@ -44,7 +82,7 @@ def test_plant_checks() -> None:
         print("")
     try:
         print("Testing bad sunlight hours...")
-        check_plant_health("tomato", 15, 2)
+        check_plant_health("tomato", 5, 0)
     except ValueError as e:
         print("Error:", e)
         print("")
