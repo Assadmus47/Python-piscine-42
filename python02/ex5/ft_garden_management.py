@@ -1,5 +1,3 @@
-from typing import List
-
 
 class GardenError(Exception):
     """Base exception for all garden-related errors."""
@@ -31,7 +29,7 @@ class GardenManager:
 
     def __init__(self):
         """Initialize an empty garden."""
-        self.plants: List[str] = []
+        self.plants: list[str] = []
 
     def add_plant_to_garden(self, plant: str) -> None:
         """

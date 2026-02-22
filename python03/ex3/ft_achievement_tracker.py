@@ -1,6 +1,19 @@
 
 
 def ft_achievement_tracker():
+    """
+    Track and analyze player achievements using Python sets.
+
+    The function defines achievement sets for multiple players and
+    performs set operations to compute analytics such as:
+
+    - all unique achievements across players
+    - achievements common to all players
+    - rare achievements owned by exactly one player
+    - pairwise comparisons between players
+
+    Results are displayed using the allowed set operations.
+    """
     print("=== Achievement Tracker System ===", end="\n\n")
 
     alice_achiv: set[str] = {

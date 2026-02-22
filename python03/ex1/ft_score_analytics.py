@@ -2,6 +2,12 @@ import sys
 
 
 def ft_score_analytics():
+    """
+    Process and analyze player scores from command-line arguments.
+
+    Converts inputs to integers, stores them in a list, and prints
+    basic statistics while handling invalid input gracefully.
+    """
     try:
         print("=== Player Score Analytics ===")
         argc: int = len(sys.argv)

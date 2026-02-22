@@ -4,6 +4,18 @@ import math
 
 
 def ft_coordinate_system():
+    """
+    Simulate a 3D coordinate system and compute the distance between
+    the origin (0, 0, 0) and another position.
+
+    If no command-line argument is provided, a default position is used.
+    If one argument is provided in the form "x,y,z", it is parsed and
+    converted into integer coordinates.
+
+    The function validates the input format, handles conversion errors,
+    and displays the computed Euclidean distance. It also demonstrates
+    tuple unpacking of 3D coordinates.
+    """
     print("=== Game Coordinate System ===")
     print("")
     position_1: tuple[int, int, int] = (0, 0, 0)

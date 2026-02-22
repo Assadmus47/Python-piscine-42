@@ -1,5 +1,3 @@
-from typing import List
-
 
 class Plant:
     """
@@ -62,7 +60,7 @@ class PrizeFlower(FloweringPlant):
 
 class GardenManager:
     total_gardens: int = 0
-    all_gardens: List[GardenManager] = []
+    all_gardens: list[GardenManager] = []
 
     def __init__(self, owner):
         self.owner = owner

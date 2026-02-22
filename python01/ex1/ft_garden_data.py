@@ -1,5 +1,3 @@
-from typing import List
-
 
 class Plant:
     """
@@ -18,7 +16,7 @@ class Plant:
 
 
 def main() -> None:
-    plants: List[Plant] = [
+    plants: list[Plant] = [
         Plant("Rose", 25, 30),
         Plant("Sunflower", 80, 45),
         Plant("Cactus", 15, 120)

@@ -1,7 +1,5 @@
-from typing import List
 
-
-def water_plants(plant_list: List[str | None]) -> None:
+def water_plants(plant_list: list[str | None]) -> None:
     """
     Simulate watering a list of plants in the garden.
 
@@ -51,7 +49,7 @@ def test_watering_system() -> None:
     print("=== Garden Watering System ===")
     print("")
     print("Testing normal watering...")
-    plant_list: List[str | None] = [
+    plant_list: list[str | None] = [
         "tomato", "lettuce", "carrots"
     ]
     water_plants(plant_list)

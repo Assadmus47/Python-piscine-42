@@ -1,5 +1,3 @@
-from typing import List
-
 
 class Plant:
     """
@@ -31,14 +29,14 @@ class Plant:
 
 class PlantFactory():
     def create_plant(
-        self, info_plants: List[tuple[str, int, int]]
-    ) -> List[Plant]:
+        self, info_plants: list[tuple[str, int, int]]
+    ) -> list[Plant]:
         """
         Create liste of plants
 
         Return List of plants
         """
-        plants: List[Plant] = []
+        plants: list[Plant] = []
         for name, height, day in info_plants:
             plants.append(Plant(name, height, day))
         return plants
@@ -46,7 +44,7 @@ class PlantFactory():
 
 def main() -> None:
     print("=== Plant Factory Output ===")
-    info_plants: List[tuple[str, int, int]] = [
+    info_plants: list[tuple[str, int, int]] = [
         ("Rose", 25, 30),
         ("Oak", 200, 365),
         ("Cactus", 5, 90),
@@ -55,7 +53,7 @@ def main() -> None:
     ]
 
     factory: PlantFactory = PlantFactory()
-    plants: List[Plant] = factory.create_plant(info_plants)
+    plants: list[Plant] = factory.create_plant(info_plants)
 
     for plant in plants:
         print("Created: ", end="")
