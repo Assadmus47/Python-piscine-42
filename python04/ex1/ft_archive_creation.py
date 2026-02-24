@@ -1,5 +1,12 @@
 
 def main() -> None:
+    """
+    Create a new archive file and write preservation entries.
+
+    The function initializes the archive system, creates the file
+    'new_discovery.txt' in write mode, records three predefined
+    entries, and displays status messages in the terminal.
+    """
     print("=== CYBER ARCHIVES - PRESERVATION SYSTEM ===")
     print()
     print("Initializing new storage unit: new_discovery.txt")
@@ -21,8 +28,8 @@ def main() -> None:
         print("Archive 'new_discovery.txt' ready for long-term preservation.")
         f.close()
 
-    except FileNotFoundError:
-        print("ERROR: Storage vault not found. Run data generator first.")
+    except Exception as e:
+        print(f"ERROR: {e}")
 
 
 if __name__ == "__main__":
