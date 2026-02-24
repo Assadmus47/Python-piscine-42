@@ -35,7 +35,7 @@ class FloweringPlant(Plant):
         """
         print(
             f"- {self.name}: {self.height}cm"
-            ", {self.color} flowers (blooming)"
+            f", {self.color} flowers (blooming)"
             )
 
 
@@ -53,14 +53,14 @@ class PrizeFlower(FloweringPlant):
         """
         print(
             f"- {self.name}: {self.height}cm,"
-            " {self.color} flowers (blooming),"
-            " Prize points: {self.prize_points}"
+            f" {self.color} flowers (blooming),"
+            f" Prize points: {self.prize_points}"
             )
 
 
 class GardenManager:
     total_gardens: int = 0
-    all_gardens: list[GardenManager] = []
+    all_gardens: list["GardenManager"] = []
 
     def __init__(self, owner):
         self.owner = owner
@@ -83,12 +83,12 @@ class GardenManager:
             counts: int = self.count_plant_types()
             print(
                 f"Plants added: {len(self.manager.plants)},"
-                " Total growth: {self.manager.total_growth}cm"
+                f" Total growth: {self.manager.total_growth}cm"
             )
             print(
                 f"Plant types: {counts['regular']} regular,"
-                " {counts['flowering']} flowering,"
-                " {counts['prize']} prize flowers"
+                f" {counts['flowering']} flowering,"
+                f" {counts['prize']} prize flowers"
                 )
 
         def count_plant_types(self) -> dict:

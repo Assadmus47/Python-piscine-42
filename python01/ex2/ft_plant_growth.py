@@ -33,13 +33,18 @@ def main() -> None:
         Plant("Sunflower", 80, 45),
         Plant("Cactus", 15, 120)
     ]
+    init_height: int = plants[0].height
+    print("=== Day 1 ===")
 
-    for day in range(1, 8):
-        print(f"=== Day {day} ===")
+    plants[0].get_info()
+    for day in range(1, 7):
         for plant in plants:
             plant.age()
             plant.grow()
-            plant.get_info()
+
+    print("=== Day 7 ===")
+    plants[0].get_info()
+    print(f"Growth this week: +{plants[0].height - init_height}cm")
 
 
 if __name__ == "__main__":

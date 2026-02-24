@@ -6,13 +6,13 @@ class Plant:
     def __init__(self, name: str, height: int, age: int):
         self.height = height
         self.name = name
-        self.age = age
+        self.day = age
 
     def get_info(self) -> None:
         """
         Display formatted info about the plants.
         """
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"{self.name}: {self.height}cm, {self.day} days old")
 
 
 def main() -> None:

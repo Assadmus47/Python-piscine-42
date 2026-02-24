@@ -12,7 +12,7 @@ class Plant:
         """
         Display formatted info about the plants
         """
-        print(f"{self.name}: {self.height}cm, {self.day} days old")
+        print(f"{self.name} ({self.height}cm, {self.day} days)")
 
     def age(self) -> None:
         """

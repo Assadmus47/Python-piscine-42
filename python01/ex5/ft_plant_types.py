@@ -45,7 +45,7 @@ class Tree(Plant):
         """
         print(
             f"{self.name} provides "
-            "{self.trunk_diameter * 1.56:g} square meters of shade"
+            f"{self.trunk_diameter * 1.56:g} square meters of shade"
             )
 
     def get_info(self) -> None:
@@ -86,19 +86,38 @@ class Vegetable(Plant):
 def main():
     print("=== Garden Plant Types ===")
     print("")
+
     flower: Flower = Flower("Rose", 25, 30, "red")
+    flower_2: Flower = Flower("Jasmine", 15, 20, "yellow")
+
     flower.get_info()
     flower.bloom()
+    flower_2.get_info()
+    flower_2.bloom()
+
     print("")
+
     tree: Tree = Tree("Oak", 500, 1825, 50)
+    tree_2: Tree = Tree("Wef", 400, 1500, 30)
+
     tree.get_info()
     tree.produce_shade()
+    tree_2.get_info()
+    tree_2.produce_shade()
+
     print("")
+
     tomato: Vegetable = Vegetable(
-        "Tomato", 80, 90, "summer harvest", "vitamine c"
+        "Tomato", 80, 90, "summer harvest", "vitamine C"
+        )
+
+    onion: Vegetable = Vegetable(
+        "Onion", 50, 60, "summer harvest", "vitamine B"
         )
     tomato.get_info()
     tomato.nutritional()
+    onion.get_info()
+    onion.nutritional()
 
 
 if __name__ == "__main__":
