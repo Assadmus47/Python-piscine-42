@@ -99,7 +99,7 @@ class NumericProcessor(DataProcessor):
 
         except ValueError as e:
             print(e)
-            return self.format_output("ERROR")
+            return "ERROR"
 
     def info(self, data: Any) -> tuple[int, float, float]:
         """
@@ -164,7 +164,7 @@ class TextProcessor(DataProcessor):
 
         except ValueError as e:
             print(e)
-            return self.format_output("ERROR")
+            return "ERROR"
 
     def count_chars_words(self, data: str) -> tuple[int, int]:
         """
@@ -219,7 +219,10 @@ class LogProcessor(DataProcessor):
         if data[:6] == "ERROR:":
             return True
 
-        if data[:5] == "INFO:":
+        elif data[:5] == "INFO:":
+            return True
+
+        elif data[:5] == "WARN:":
             return True
 
         return False
@@ -254,10 +257,14 @@ class LogProcessor(DataProcessor):
                 return f"[ALERT] {level} level detected: {message}"
             elif data[:4] == "INFO":
                 return f"[INFO] {level} level detected: {message}"
+            elif data[:4] == "WARN":
+                return f"[WARN] {level} level detected: {message}"
+            else:
+                return "ERROR"
 
         except ValueError as e:
             print(e)
-            return self.format_output("ERROR")
+            return "ERROR"
 
 
 def main() -> None:
