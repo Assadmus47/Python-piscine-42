@@ -91,21 +91,17 @@ class NumericProcessor(DataProcessor):
             str: Formatted statistics or error output.
         """
         try:
-            print(f"Processing data: {data}")
-
             if not self.validate(data):
                 raise ValueError("Invalid Data")
 
-            print("Validation: Numeric data verified")
-            info: dict[str, int | float] = self.info(data)
-            result: str = f'Processed {info["len"]} numeric '
-            f'values, sum={info["sum"]}, avg={info["avg"]:.1f}'
-            return self.format_output(result)
+            count, sm, avg = self.info(data)
+            return f"Processed {count} numeric values, sum={sm}, avg={avg:.1f}"
+
         except ValueError as e:
             print(e)
             return self.format_output("ERROR")
 
-    def info(self, data: Any) -> dict[str, int | float]:
+    def info(self, data: Any) -> tuple[int, float, float]:
         """
         Compute numeric statistics from the data.
 
@@ -124,7 +120,7 @@ class NumericProcessor(DataProcessor):
             somme = somme + i
 
         average: float = somme / length
-        return {"len": length, "sum": somme, "avg": average}
+        return length, somme, average
 
 
 class TextProcessor(DataProcessor):
@@ -160,13 +156,12 @@ class TextProcessor(DataProcessor):
             str: Formatted text statistics or error output.
         """
         try:
-            print(f"Processing data: \"{data}\"")
             if not self.validate(data):
                 raise ValueError("Invalid Data")
-            print("Validation: Text data verified")
+
             char, words = self.count_chars_words(data)
-            result: str = f'Processed text: {char} characters, {words} words'
-            return self.format_output(result)
+            return f'Processed text: {char} characters, {words} words'
+
         except ValueError as e:
             print(e)
             return self.format_output("ERROR")
@@ -223,8 +218,7 @@ class LogProcessor(DataProcessor):
 
         if data[:6] == "ERROR:":
             return True
-        if data[:5] == "WARN:":
-            return True
+
         if data[:5] == "INFO:":
             return True
 
@@ -241,11 +235,8 @@ class LogProcessor(DataProcessor):
             str: Formatted alert message or error output.
         """
         try:
-            print(f"Processing data: {data}")
             if not self.validate(data):
                 raise ValueError("Invalid Data")
-
-            print("Validation: Log data verified")
 
             i: int = 0
             for c in data:
@@ -259,8 +250,10 @@ class LogProcessor(DataProcessor):
             if message != "" and message[0] == " ":
                 message = message[1:]
 
-            result: str = f"[{level}] {level} level detected: {message}"
-            return self.format_output(result)
+            if data[:5] == "ERROR":
+                return f"[ALERT] {level} level detected: {message}"
+            elif data[:4] == "INFO":
+                return f"[INFO] {level} level detected: {message}"
 
         except ValueError as e:
             print(e)
@@ -274,19 +267,34 @@ def main() -> None:
     print("Initializing Numeric Processor...")
     num_proc: NumericProcessor = NumericProcessor()
     data_1: list[int] = [1, 2, 3, 4, 5]
-    print(num_proc.process(data_1))
+    print(f"Processing data: {data_1}")
+
+    if num_proc.validate(data_1):
+        print("Validation: Numeric data verified")
+        result: str = num_proc.process(data_1)
+        print(num_proc.format_output(result))
 
     print()
+
     print("Initializing Text Processor...")
     text_proc: TextProcessor = TextProcessor()
     data_2: str = "Hello Nexus World"
-    print(text_proc.process(data_2))
+    print(f"Processing data: \"{data_2}\"")
+    if text_proc.validate(data_2):
+        print("Validation: Text data verified")
+        result = text_proc.process(data_2)
+        print(text_proc.format_output(result))
 
     print()
+
     print("Initializing Log Processor...")
     log_proc: LogProcessor = LogProcessor()
     data_3: str = "ERROR: Connection timeout"
-    print(log_proc.process(data_3))
+    print(f"Processing data: {data_3}")
+    if log_proc.validate(data_3):
+        print("Validation: Log entry verified")
+        result = log_proc.process(data_3)
+        print(log_proc.format_output(result))
 
     print()
     print("=== Polymorphic Processing Demo ===")
