@@ -44,9 +44,9 @@ def garden_operations() -> None:
     try:
         print("Testing KeyError...")
         dic: dict[str, int] = {"pizza": 3}
-        print(dic["suchi"])
+        print(dic["missing_plant"])
     except KeyError:
-        print("Caught KeyError: 'suchi'")
+        print("Caught KeyError: 'missing_plant'")
         print("")
 
     try:

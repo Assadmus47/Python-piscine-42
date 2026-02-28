@@ -64,7 +64,7 @@ def test_plant_checks() -> None:
         print(check_plant_health("tomato", 5, 5))
         print("")
     except ValueError as e:
-        print("Error: ", e)
+        print("Error:", e)
         print("")
 
     try:

@@ -25,7 +25,7 @@ def check_temperature(temp_str: str) -> int | None:
                 )
         if temperature < 0:
             raise ValueError(
-                f"Error: {temperature}°C is too cold for plants (min 0°C)"
+                f"{temperature}°C is too cold for plants (min 0°C)"
                 )
         print(f"Temperature {temperature}°C is perfect for plants!")
         return temperature
