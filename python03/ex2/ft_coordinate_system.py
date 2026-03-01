@@ -1,9 +1,8 @@
 import sys
-
 import math
 
 
-def ft_coordinate_system():
+def ft_coordinate_system() -> None:
     """
     Simulate a 3D coordinate system and compute the distance between
     the origin (0, 0, 0) and another position.
@@ -52,7 +51,10 @@ def ft_coordinate_system():
             except ValueError as e:
                 print(f"Parsing invalid coordinates: \"{sys.argv[1]}\"")
                 print(f"Error parsing coordinates: {e}")
-                print(f"Error details - Type: {type(e).__name__}, Args: {e.args}")
+                print(
+                    f"Error details - Type: "
+                    f"{type(e).__name__}, Args: {e.args}"
+                    )
                 return
 
             print(f"Parsing coordinates: \"{sys.argv[1]}\"")

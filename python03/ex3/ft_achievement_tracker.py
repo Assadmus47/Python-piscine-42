@@ -1,6 +1,6 @@
 
 
-def ft_achievement_tracker():
+def ft_achievement_tracker() -> None:
     """
     Track and analyze player achievements using Python sets.
 

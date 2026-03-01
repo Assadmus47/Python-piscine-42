@@ -21,9 +21,9 @@ def ft_command_quest() -> None:
     else:
         print(f"Program name: {sys.argv[0]}")
         print(f"Arguments received: {argc - 1}")
-        i = 1
+        i: int = 1
         for arg in sys.argv[1:]:
-            print(f"Argument {i}: {sys.argv[i]}")
+            print(f"Argument {i}: {arg}")
             i += 1
     print(f"Total arguments: {argc}")
 

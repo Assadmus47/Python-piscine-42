@@ -53,8 +53,7 @@ def is_prime(nmb: int) -> bool:
     return True
 
 
-def prime() -> Generator[
-        int, None, None]:
+def prime() -> Generator[int, None, None]:
     """
     Generate an infinite sequence of prime numbers.
 

@@ -1,7 +1,7 @@
 import sys
 
 
-def ft_score_analytics():
+def ft_score_analytics() -> None:
     """
     Process and analyze player scores from command-line arguments.
 

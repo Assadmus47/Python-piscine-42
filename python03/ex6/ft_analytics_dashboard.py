@@ -121,7 +121,7 @@ def ft_analytics_dashboard() -> None:
         sum(players_dict[k] for k in players_dict) / len(players_dict)
     )
 
-    top_player: str = max(players_dict, key=lambda k: players_dict[k])
+    top_player: str = max(players_dict, key=players_dict.get)
     top_score: int = players_dict[top_player]
     top_achievements: int = achievement_counts[top_player]
 

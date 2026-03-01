@@ -87,7 +87,7 @@ def ft_inventory_system() -> None:
 
     print("=== Dictionary Properties Demo ===")
     print("Dictionary keys: ", end="")
-    flag: int = False
+    flag = False
     for key in inventory.keys():
         if flag:
             print(", ", end="")
