@@ -1,2 +1,0 @@
-
-print("=== Sacred Scroll Mastery ===")

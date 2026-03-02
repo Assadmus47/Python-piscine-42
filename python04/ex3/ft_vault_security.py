@@ -1,5 +1,12 @@
 
 def main() -> None:
+    """
+    Implement secure vault operations using the with statement.
+
+    Performs secure extraction and preservation using context
+    managers to ensure automatic vault sealing regardless of
+    operation success or failure.
+    """
     try:
         print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===")
         print()
