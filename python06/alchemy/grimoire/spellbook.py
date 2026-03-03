@@ -1,10 +1,10 @@
 
 def record_spell(spell_name: str, ingredients: str) -> str:
     from .validator import validate_ingredients  # late import
-    
-    result = validate_ingredients(ingredients)  # appelle le validator
-    
+
+    result: str = validate_ingredients(ingredients)  # appelle le validator
+
     if "VALID" in result:
-        return "Spell recorded: ..."
+        return f"Spell recorded: {spell_name} ({result})"
     else:
-        return "Spell rejected: ..."
+        return f"Spell rejected: {spell_name} ({result})"
