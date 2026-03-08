@@ -119,6 +119,7 @@ def main():
     except ValidationError as e:
         print(e.errors()[0]['ctx']['error'])
 
+    print()
     print("=========================================")
     print("Expected validation error:")
     try:
