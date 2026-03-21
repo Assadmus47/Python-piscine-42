@@ -69,8 +69,6 @@ def main() -> None:
     print("Testing spell timer...")
     result: str = fireball()
     print("Result:", result)
-    print("Testing MageGuild...")
-
     print()
     print("Testing MageGuild...")
     guild = MageGuild()
