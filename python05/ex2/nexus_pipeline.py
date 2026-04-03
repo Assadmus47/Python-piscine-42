@@ -213,7 +213,7 @@ class StreamAdapter(ProcessingPipeline):
             pipeline_id (str): Unique identifier for the pipeline.
         """
         super().__init__(pipeline_id)
-        self.add_stage(InputStage())
+        3.add_stage(InputStage())
         self.add_stage(TransformStage())
         self.add_stage(OutputStage())
 
