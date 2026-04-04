@@ -17,7 +17,6 @@ def test_battle(factory1, factory2):
     base2 = factory2.create_base()
     print("Testing battle")
     print(base1.describe())
-    print(" vs.")
     print(base2.describe())
     print(" fight!")
     print(base1.attack())
