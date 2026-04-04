@@ -21,10 +21,10 @@ def load_config() -> dict[str, str]:
 def display_config(config: dict[str, str]) -> None:
     print("Configuration loaded:")
     print("Mode:", config["mode"])
-    print("Database: Connected to local instance")
-    print("API Access: Authenticated")
+    print("Database:", config["url"])
+    print("API Key:", config["key"])
     print("Log Level:", config["level"])
-    print("Zion Network: Online")
+    print("Zion Network:", config["endpoint"])
 
 
 def security_check() -> None:
@@ -59,4 +59,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()        
+    main()

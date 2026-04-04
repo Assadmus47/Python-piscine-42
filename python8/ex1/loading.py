@@ -16,6 +16,13 @@ except ImportError as e:
     print(f"Missing dependency: {e}")
     print("Run: pip install -r requirements.txt")
 
+
+def show_package_managers() -> None:
+    print("Dependency managers:")
+    print("  pip    -> pip install -r requirements.txt")
+    print("  Poetry -> poetry install && poetry run python loading.py")
+
+
 def check_dependencies() -> None:
     print("Checking dependencies:")
 
@@ -62,6 +69,7 @@ def main() -> None:
     print("LOADING STATUS: Loading programs...")
     print()
     check_dependencies()
+    show_package_managers()
     print()
 
     if not DEPENDENCIES_OK:

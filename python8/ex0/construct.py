@@ -16,7 +16,7 @@ def display_env_info() -> None:
     if is_in_venv():
         print(
             "Virtual Environment:",
-            os.path.basename(os.environ.get("VIRTUAL_ENV"))
+            os.path.basename(os.environ.get("VIRTUAL_ENV", ""))
         )
         print("Environment Path:", os.environ.get("VIRTUAL_ENV"))
 
