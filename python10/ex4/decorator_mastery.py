@@ -1,7 +1,7 @@
 
 from functools import wraps
 
-from typing import Callable
+from collections.abc import Callable
 
 import time
 
@@ -76,6 +76,21 @@ def main() -> None:
     print(guild.validate_mage_name("mkacemi3"))
     print(guild.cast_spell("Lightning", power=15))
     print(guild.cast_spell("Lightning", power=5))
+    print()
+    print("Testing retry spell...")
+
+    @retry_spell(3)
+    def unstable_spell():
+        raise Exception("Spell failed!")
+
+    print(unstable_spell())
+    print()
+
+    @retry_spell(3)
+    def lucky_spell():
+        return "Waaaaaaagh spelled !"
+
+    print(lucky_spell())
 
 
 if __name__ == "__main__":

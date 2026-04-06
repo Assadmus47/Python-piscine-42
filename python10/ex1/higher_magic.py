@@ -1,5 +1,5 @@
 
-from typing import Callable
+from collections.abc import Callable
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
@@ -9,8 +9,8 @@ def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
 
 
 def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
-    def power(*args):
-        return base_spell(*args) * multiplier
+    def power(target: str, pw: int) -> str:
+        return base_spell(target, pw * multiplier)
     return power
 
 
@@ -34,16 +34,37 @@ def spell_sequence(spells: list[Callable]) -> Callable:
 
 
 def main() -> None:
-    print()
     print("Testing spell combiner...")
-    result: Callable = spell_combiner(
-        lambda: "Fireball hits Dragon", lambda: "Heals Dragon"
-        )
-    print("Combined spell result:", ", ".join(result()))
+    combined = spell_combiner(
+        lambda target, pw: f"Fireball hits {target} for {pw}",
+        lambda target, pw: f"Heals {target} for {pw}"
+    )
+    print("Combined spell result:", combined("Dragon", 10))
+
     print()
     print("Testing power amplifier...")
-    result = power_amplifier(lambda: 10, 3)
-    print("Original: 10, Amplified:", result())
+    amplified = power_amplifier(
+        lambda target, pw: f"Fireball hits {target} for {pw}", 3
+    )
+    print("Original: 10, Amplified:", amplified("Dragon", 10))
+
+    print()
+    print("Testing conditional caster...")
+    strong_enough = conditional_caster(
+        lambda target, pw: pw >= 50,
+        lambda target, pw: f"Fireball hits {target} for {pw}"
+    )
+    print("Power 80:", strong_enough("Dragon", 80))
+    print("Power 20:", strong_enough("Dragon", 20))
+
+    print()
+    print("Testing spell sequence...")
+    sequence = spell_sequence([
+        lambda target, pw: f"Fireball hits {target} for {pw}",
+        lambda target, pw: f"Heals {target} for {pw}",
+        lambda target, pw: f"Shield protects {target}"
+    ])
+    print("Sequence results:", sequence("Dragon", 10))
 
 
 if __name__ == "__main__":
